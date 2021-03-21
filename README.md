@@ -88,7 +88,7 @@ def mean(x):
     return x.sum(axis=0)/x.shape[0]
 ```
 
-Vector de medias para la clase $\omega_1$
+Vector de medias para la clase w1
 
 
 ```python
@@ -103,7 +103,7 @@ w0_mean
 
 
 
-Vector de medias para la clase $\omega_2$
+Vector de medias para la clase w2
 
 
 ```python
@@ -118,7 +118,7 @@ w1_mean
 
 
 
-Vector de medias para la clase $\omega_3$
+Vector de medias para la clase w3
 
 
 ```python
@@ -133,7 +133,7 @@ w2_mean
 
 
 
-Vector de medias para la clase $\omega_4$
+Vector de medias para la clase w4
 
 
 ```python
@@ -169,7 +169,7 @@ def cov(x,uk):
     return matrix
 ```
 
-Matriz de covarianza para la clase $\omega_1$
+Matriz de covarianza para la clase w1
 
 
 ```python
@@ -185,7 +185,7 @@ w0_cov
 
 
 
-Matriz de covarianza para la clase $\omega_2$
+Matriz de covarianza para la clase w2
 
 
 ```python
@@ -201,7 +201,7 @@ w1_cov
 
 
 
-Matriz de covarianza para la clase $\omega_3$
+Matriz de covarianza para la clase w3
 
 
 ```python
@@ -217,7 +217,7 @@ w2_cov
 
 
 
-Matriz de covarianza para la clase $\omega_4$
+Matriz de covarianza para la clase w4
 
 
 ```python
@@ -246,7 +246,7 @@ data=[_w0,_w1,_w2,_w3]
 total = sum(list(map(lambda x:x.shape[0],data)))
 ```
 
-Probabilidad a priori de la clase $\omega_1$
+Probabilidad a priori de la clase w1
 
 
 ```python
@@ -261,7 +261,7 @@ Pw0
 
 
 
-Probabilidad a priori de la clase $\omega_2$
+Probabilidad a priori de la clase w2
 
 
 ```python
@@ -276,7 +276,7 @@ Pw1
 
 
 
-Probabilidad a priori de la clase $\omega_3$
+Probabilidad a priori de la clase w3
 
 
 ```python
@@ -291,7 +291,7 @@ Pw2
 
 
 
-Probabilidad a priori de la clase $\omega_4$
+Probabilidad a priori de la clase w4
 
 
 ```python
@@ -364,6 +364,7 @@ plot_classifier(bayes_fx,
                 plot_step=.3,
                 filename="bayes",
                 edgecolor="#000",
+                save_img=True
                )
 ```
 
@@ -512,7 +513,7 @@ def _gix(xi,covs,uk,pw):
 
 
 ```python
-plot_classifier(quadratic_fx,title="Clasificador Cuadratico",plot_step=.3,filename="quadratic")
+plot_classifier(quadratic_fx,title="Clasificador Cuadratico",plot_step=.3,filename="quadratic",save_img=True)
 ```
 
 
@@ -584,7 +585,7 @@ def cMinMaha(x,uk,sigmas):
 
 
 ```python
-plot_classifier(med_fx,title="Clasificador de minima distancia Euclidiana",plot_step=.3,filename="mde")
+plot_classifier(med_fx,title="Clasificador de minima distancia Euclidiana",plot_step=.3,filename="mde",save_img=True)
 ```
 
 
@@ -620,7 +621,7 @@ plot_classifier(med_fx,title="Clasificador de minima distancia Euclidiana",plot_
 
 
 ```python
-plot_classifier(mmd,title="Clasificador de minima distancia Mahalanobis",plot_step=.3,filename="mmd")
+plot_classifier(mmd,title="Clasificador de minima distancia Mahalanobis",plot_step=.3,filename="mmd",save_img=True)
 ```
 
 
@@ -786,7 +787,7 @@ def plot_classifier(fx,**kwargs):
     show_patterns = kwargs.get("show_patterns",True)
     save          = kwargs.get("save_img",False)
     colors        = kwargs.get("colors",["#F44336","#536DFE","#4CAF50","#FF9800"])
-    labels        = ["W0","W1","W2","W3"]
+    labels        = ["$\omega_0$","$\omega_1$","$\omega_2$","$\omega_3$"]
     plot_step     = kwargs.get('plot_step',1)
     filename      = kwargs.get("filename","01")
     edgecolor     = kwargs.get("edgecolor","#000")
