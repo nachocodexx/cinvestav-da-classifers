@@ -67,7 +67,7 @@ ax.legend(bbox_to_anchor=(1.05, 1))
 
 
 
-    <matplotlib.legend.Legend at 0x7efd1b61ac40>
+    <matplotlib.legend.Legend at 0x7f5551e8edf0>
 
 
 
@@ -341,18 +341,6 @@ def px(x,ui,sigmai,pwi):
     return denominator*exp
 ```
 
-
-```python
-# gix(_w0[0],0) + gix(_w0[0],1)+gix(_w0[0],2)+gix(_w0[0],3)+  _rc(0,_w0[0])+_rc(1,_w0[0])+_rc(2,_w0[0])+_rc(3,_w0[0])
-```
-
-
-
-
-    0.9999999999999999
-
-
-
 # Funcion discriminante Bayesiana
 
 
@@ -369,6 +357,8 @@ def bayesClassifier(x):
     return np.argmax(np.array(data))
 
 ```
+
+## Probabilidades posteriores
 
 
 ```python
@@ -596,16 +586,19 @@ plot_classifier(bayes_fx,
 ```
 
 
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-28-ddfb6c66473e> in <module>
+    ----> 1 plot_classifier(bayes_fx,
+          2                 title="Clasificador Bayesiano",
+          3                 plot_step=.3,
+          4                 filename="bayes",
+          5                 edgecolor="#000",
 
 
-    <AxesSubplot:title={'center':'Clasificador Bayesiano'}, xlabel='$x_1$', ylabel='$x_2$'>
-
-
-
-
-    
-![png](README_files/README_46_1.png)
-    
+    NameError: name 'plot_classifier' is not defined
 
 
 c) Calcule el riesgo condicional de las muestras de entrenamiento (Ecuaci´on 19 de la clase AD-02).
@@ -632,52 +625,6 @@ for wi in [_w0,_w1,_w2,_w3]:
     print("_"*100)
 # _rc(_w0[0])
 ```
-
-    Riego condicional [0.1 1.1]	=>	0.25134871483023286
-    Riego condicional [6.8 7.1]	=>	0.04970804471777131
-    Riego condicional [-3.5 -4.1]	=>	0.4768867754205207
-    Riego condicional [2.  2.7]	=>	0.11610573859468304
-    Riego condicional [4.1 2.8]	=>	0.48806658936635283
-    Riego condicional [3.1 5. ]	=>	0.24070581630283427
-    Riego condicional [-0.8 -1.3]	=>	0.17036744548361085
-    Riego condicional [0.9 1.2]	=>	0.12899444235148777
-    Riego condicional [5.  6.4]	=>	0.050830147334813044
-    Riego condicional [3.9 4. ]	=>	0.072449786509551
-    ____________________________________________________________________________________________________
-    Riego condicional [7.1 4.2]	=>	0.009235257275210743
-    Riego condicional [-1.4 -4.3]	=>	0.5370390059850528
-    Riego condicional [4.5 0. ]	=>	0.008342469323523987
-    Riego condicional [6.3 1.6]	=>	0.0037889612975913665
-    Riego condicional [4.2 1.9]	=>	0.10291992204556502
-    Riego condicional [ 1.4 -3.2]	=>	0.0320532400230464
-    Riego condicional [ 2.4 -4. ]	=>	0.011081318249361406
-    Riego condicional [ 2.5 -6.1]	=>	0.04103426332288066
-    Riego condicional [8.4 3.7]	=>	0.0014687851205584966
-    Riego condicional [ 4.1 -2.2]	=>	0.003650636950568498
-    ____________________________________________________________________________________________________
-    Riego condicional [-3.  -2.9]	=>	0.3752220862365331
-    Riego condicional [0.5 8.7]	=>	0.0023681342843010753
-    Riego condicional [2.9 2.1]	=>	0.19390367981582715
-    Riego condicional [-0.1  5.2]	=>	0.0071090285460011105
-    Riego condicional [-4.   2.2]	=>	0.18434001327627736
-    Riego condicional [-1.3  3.7]	=>	0.024928965201133586
-    Riego condicional [-3.4  6.2]	=>	0.06678140931562293
-    Riego condicional [-4.1  3.4]	=>	0.14858861088858333
-    Riego condicional [-5.1  1.6]	=>	0.34917748032576224
-    Riego condicional [1.9 5.1]	=>	0.051392269867891374
-    ____________________________________________________________________________________________________
-    Riego condicional [-2.  -8.4]	=>	0.4336462951736442
-    Riego condicional [-8.9  0.2]	=>	0.10655852766104328
-    Riego condicional [-4.2  7.7]	=>	0.13388382270447743
-    Riego condicional [-8.5 -3.2]	=>	0.04399748947642163
-    Riego condicional [-6.7 -4. ]	=>	0.05594587155951946
-    Riego condicional [-0.5 -9.2]	=>	0.4771638259465129
-    Riego condicional [-5.3 -6.7]	=>	0.13836445327995398
-    Riego condicional [-8.7 -6.4]	=>	0.006185921241593081
-    Riego condicional [-7.1 -9.7]	=>	0.008650138345924853
-    Riego condicional [-8.  -6.3]	=>	0.009450948917345289
-    ____________________________________________________________________________________________________
-
 
 # Práctica #2
 
@@ -823,7 +770,7 @@ def classifyPatterns(data,fx,**kwargs):
         label = "$\mathbf{x}_"+str(i+1)+ "\longrightarrow w_"+str(val)+"$"
         ax.scatter(xi[0],xi[1],color=colors[val],s=500,edgecolors="#000",label=label)
     ax.legend(bbox_to_anchor=(1.05, 1),title="Patrones")
-    plt.savefig("images/{}".format(filename),dpi=300,bbox_inches='tight')
+#     plt.savefig("images/{}".format(filename),dpi=300,bbox_inches='tight')
 ```
 
 ### Clasificador cuadratico
@@ -890,13 +837,6 @@ def get_accuracy(fx):
     return acc
 get_accuracy(bayes_fx),get_accuracy(quadratic_fx),get_accuracy(med_fx),get_accuracy(mmd)
 ```
-
-
-
-
-    (0.9, 0.9, 0.75, 0.825)
-
-
 
 
 ```python
@@ -1002,7 +942,7 @@ for i,z in enumerate(Z) :
 #     print(z)
     for j,xi in enumerate(z):
         outcome = bayesClassifier(xi)
-        cr      = _rc(outcome,xi)
+        cr      = _rc(xi)
 #         data[i][j]= px(xi,uk[index],covX[index],Pwi[index])
         data[i][j]= cr 
         
@@ -1030,9 +970,3 @@ plt.savefig("images/3d")
 # plt.show()
 # Z[0].shape
 ```
-
-
-    
-![png](README_files/README_76_0.png)
-    
-
